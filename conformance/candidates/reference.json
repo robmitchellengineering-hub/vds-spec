@@ -1,0 +1,34 @@
+{
+  "name": "pacland-climate",
+  "version": "0.9",
+  "observables": [
+    {"id": "GMST", "measured": true, "computable": true, "validated": true},
+    {"id": "EEI", "measured": true, "computable": true, "validated": true},
+    {"id": "OHC", "measured": true, "computable": true, "validated": true},
+    {"id": "GMSL", "measured": true, "computable": true, "validated": true},
+    {"id": "Arctic sea ice", "measured": true, "computable": true, "validated": false},
+    {"id": "AMOC", "measured": true, "computable": true, "validated": false},
+    {"id": "ENSO", "measured": true, "computable": true, "validated": false},
+    {"id": "precip", "measured": true, "computable": true, "validated": false},
+    {"id": "ice sheets", "measured": true, "computable": true, "validated": false},
+    {"id": "extremes", "measured": true, "computable": true, "validated": false},
+    {"id": "2100 warming", "measured": false, "computable": true, "validated": false},
+    {"id": "2100 sea level", "measured": false, "computable": true, "validated": false}
+  ],
+  "claimed": {"m": 4, "delta": 0.025},
+  "gates": [
+    {"name": "unit-tests", "result": "pass"},
+    {"name": "conservation-guard", "result": "pass"},
+    {"name": "sensitivity-gate", "result": "pass"},
+    {"name": "forcing-gate", "result": "pass"},
+    {"name": "certificate", "result": "pass"}
+  ],
+  "guards": [
+    {"name": "guard_energy_budget", "proven": true, "mutation": "pass"},
+    {"name": "guard_mass", "proven": true, "mutation": "pass"},
+    {"name": "guard_salt", "proven": true, "mutation": "pass"},
+    {"name": "guard_ecs", "proven": true, "mutation": "pass"}
+  ],
+  "reviewer": {"coder": "deepseek-flash", "reviewer": "deepseek-v4-pro"},
+  "evidence": {"producer": "pacland climate module", "execution": "cmip6 drift run 2026-10-24", "falsifier": "a model that closes all three ledgers but fails the certificate"}
+}

@@ -1,0 +1,41 @@
+{
+  "candidate": {
+    "name": "pacland-climate",
+    "version": "0.9"
+  },
+  "computed": {
+    "m": 4,
+    "n_observables": 12,
+    "radius": 0.6790507578703098,
+    "delta": 0.025
+  },
+  "checks": {
+    "deficit_consistent": {
+      "ok": true,
+      "detail": "recomputed m=4 (of 12 observables), claimed m=4"
+    },
+    "radius_reported": {
+      "ok": true,
+      "detail": "r(delta=0.025) = 0.6791 over m=4"
+    },
+    "gates_structural": {
+      "ok": true,
+      "detail": "5 gates; skipped/neutral=none; unnamed=none"
+    },
+    "mutation_proven": {
+      "ok": true,
+      "detail": "4 proven of 4; unproven-but-claimed=none"
+    },
+    "reviewer_independent": {
+      "ok": true,
+      "detail": "coder='deepseek-flash', reviewer='deepseek-v4-pro'"
+    },
+    "evidence_complete": {
+      "ok": true,
+      "detail": "missing=none"
+    }
+  },
+  "verdict": "PASS",
+  "report_hash": "sha256:7d7f55d8dcfd4d86aea3acec520fac84eabba17e1cd6568e49aacec6ba04b2e3",
+  "generated": "2026-10-24T04:51:08.235175+00:00"
+}

@@ -1,0 +1,135 @@
+{
+  "name": "pacland-climate",
+  "version": "0.9",
+  "observables": [
+    {
+      "id": "GMST",
+      "measured": true,
+      "computable": true,
+      "validated": true
+    },
+    {
+      "id": "EEI",
+      "measured": true,
+      "computable": true,
+      "validated": true
+    },
+    {
+      "id": "OHC",
+      "measured": true,
+      "computable": true,
+      "validated": true
+    },
+    {
+      "id": "GMSL",
+      "measured": true,
+      "computable": true,
+      "validated": true
+    },
+    {
+      "id": "Arctic sea ice",
+      "measured": true,
+      "computable": true,
+      "validated": false
+    },
+    {
+      "id": "AMOC",
+      "measured": true,
+      "computable": true,
+      "validated": false
+    },
+    {
+      "id": "ENSO",
+      "measured": true,
+      "computable": true,
+      "validated": false
+    },
+    {
+      "id": "precip",
+      "measured": true,
+      "computable": true,
+      "validated": false
+    },
+    {
+      "id": "ice sheets",
+      "measured": true,
+      "computable": true,
+      "validated": false
+    },
+    {
+      "id": "extremes",
+      "measured": true,
+      "computable": true,
+      "validated": false
+    },
+    {
+      "id": "2100 warming",
+      "measured": false,
+      "computable": true,
+      "validated": false
+    },
+    {
+      "id": "2100 sea level",
+      "measured": false,
+      "computable": true,
+      "validated": false
+    }
+  ],
+  "claimed": {
+    "m": 4,
+    "delta": 0.025
+  },
+  "gates": [
+    {
+      "name": "theorem-tower",
+      "result": "pass"
+    },
+    {
+      "name": "climate-deficit",
+      "result": "pass"
+    },
+    {
+      "name": "unit-tests",
+      "result": "pass"
+    },
+    {
+      "name": "conservation-guard",
+      "result": "pass"
+    },
+    {
+      "name": "certificate",
+      "result": "pass"
+    }
+  ],
+  "guards": [
+    {
+      "name": "guard_energy_budget",
+      "proven": true,
+      "mutation": "pass"
+    },
+    {
+      "name": "guard_mass",
+      "proven": true,
+      "mutation": "pass"
+    },
+    {
+      "name": "guard_salt",
+      "proven": true,
+      "mutation": "pass"
+    },
+    {
+      "name": "guard_ecs",
+      "proven": true,
+      "mutation": "pass"
+    }
+  ],
+  "reviewer": {
+    "coder": "deepseek-flash",
+    "reviewer": "deepseek-v4-pro"
+  },
+  "evidence": {
+    "producer": "pacland climate module (pip install pacland)",
+    "execution": "pacland.climate.deficit run 2026-10-24 -> m=4 of 12, radius 0.679; validate_all_theorems 6/6 PASS",
+    "falsifier": "a model that closes all three ledgers but still fails the certificate; or m recomputation disagreeing with 4"
+  }
+}

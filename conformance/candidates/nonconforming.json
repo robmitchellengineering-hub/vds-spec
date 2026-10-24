@@ -1,0 +1,21 @@
+{
+  "name": "broken-candidate",
+  "version": "0.1",
+  "observables": [
+    {"id": "GMST", "measured": true, "computable": true, "validated": true},
+    {"id": "EEI", "measured": true, "computable": true, "validated": true},
+    {"id": "OHC", "measured": true, "computable": true, "validated": true},
+    {"id": "GMSL", "measured": true, "computable": true, "validated": true},
+    {"id": "2100 warming", "measured": false, "computable": true, "validated": false}
+  ],
+  "claimed": {"m": 9, "delta": 0.025},
+  "gates": [
+    {"name": "unit-tests", "result": "pass"},
+    {"name": "conservation-guard", "result": "skipped"}
+  ],
+  "guards": [
+    {"name": "guard_energy_budget", "proven": true, "mutation": "none"}
+  ],
+  "reviewer": {"coder": "deepseek-flash", "reviewer": "deepseek-flash"},
+  "evidence": {"producer": "someone", "execution": "ran"}
+}
