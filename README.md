@@ -28,6 +28,8 @@ Read **[SPEC.md](SPEC.md)** for the normative clauses.
 - `conformance/report-pacland-climate.json` — a worked, hash-stamped conformance report.
 - `conformance/reports/` — published reports on real subjects, each with the manifest it ran
   against and its mutation proofs. Evidence, not certification; the registry is the certification.
+- `benchmarks/` — draft benchmarks published for comment; the first is the climate
+  conservation gate (`benchmarks/climate-conservation/`), with a worked report.
 - `registry.json` — the public registry: every certified version, with the hash of the report
   that backs it.
 
