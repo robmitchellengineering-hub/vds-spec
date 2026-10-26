@@ -26,6 +26,33 @@ Read **[SPEC.md](SPEC.md)** for the normative clauses.
 - `SPEC.md` — the normative specification (RFC 2119 language; every MUST is testable).
 - `conformance/` — a runnable conformance suite + candidate manifests.
 - `conformance/report-pacland-climate.json` — a worked, hash-stamped conformance report.
+- `registry.json` — the public registry: every certified version, with the hash of the report
+  that backs it.
+
+## The public registry
+
+`registry.json` is the machine-readable record, and it is the only copy — a certification is
+published here, not copied here. Each entry names the product, the exact version, the level,
+the deficit `m`, the guards proven, the gates structural, the auditor, the status, and the
+`report` digest of the evidence, plus the `reportFile` that carries it.
+
+**A claimed hash is only worth the reader's ability to recompute it**, so here is the rule and
+the check. A report's digest is `sha256` over its canonical JSON — sorted keys, compact
+separators — with the `report_hash` and `generated` fields removed:
+
+```sh
+python3 - <<'EOF'
+import json, hashlib
+r = json.load(open("conformance/report-pacland-climate.json"))
+claimed = r.pop("report_hash"); r.pop("generated")
+got = "sha256:" + hashlib.sha256(
+    json.dumps(r, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+print(claimed); print(got); print("MATCH" if got == claimed else "MISMATCH")
+EOF
+```
+
+The published entry is a **self-certified reference** (`auditor: VVS (self)`): we ran our own
+suite and say so. It is not an independent audit, and the registry labels it.
 
 ## Run the conformance suite
 
