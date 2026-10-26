@@ -1,0 +1,48 @@
+{
+  "at": "2026-10-26T04:18:15+00:00",
+  "repo": "pacland",
+  "commit": "e7d5d6bdff4896766b135ffc6e9ba68628fc1a9b",
+  "tests": [
+    "tests.test_climate_cmip6_drift",
+    "tests.test_climate_reference_model"
+  ],
+  "baseline": "OK",
+  "mutations": [
+    {
+      "mutation": "conservation-tolerance",
+      "why": "the unit conversion is wrong, so every drift reads as tiny and no model is flagged",
+      "file": "src/pacland/climate/cmip6_drift.py",
+      "find": "_EARTH_AREA_M2 = 5.101e14",
+      "replace": "_EARTH_AREA_M2 = 5.101e8",
+      "result": "red",
+      "detail": "FAILED (failures=8, errors=5)"
+    },
+    {
+      "mutation": "worst-energy-model-zeroed",
+      "why": "the worst energy offender's drift is zeroed, so the count of leaking models drops",
+      "file": "data/climate/cmip6_drift.json",
+      "find": "\"netTOA_J_per_yr\": 2.39e+22",
+      "replace": "\"netTOA_J_per_yr\": 0.0",
+      "result": "red",
+      "detail": "FAILED (failures=6)"
+    },
+    {
+      "mutation": "giss-ecs-out-of-range",
+      "why": "GISS ECS moved outside the IPCC likely range, so the reference model stops being the reference",
+      "file": "data/climate/cmip6_ecs.json",
+      "find": "\"GISS-E2-1-G\": 2.71",
+      "replace": "\"GISS-E2-1-G\": 4.2",
+      "result": "red",
+      "detail": "FAILED (failures=1)"
+    },
+    {
+      "mutation": "giss-erf2x-out-of-band",
+      "why": "GISS ERF2x moved outside the assessed band, so the forcing gate must fail it",
+      "file": "data/climate/cmip6_ecs.json",
+      "find": "\"GISS-E2-1-G\": 3.95",
+      "replace": "\"GISS-E2-1-G\": 5.0",
+      "result": "red",
+      "detail": "FAILED (failures=1)"
+    }
+  ]
+}

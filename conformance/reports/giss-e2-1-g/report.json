@@ -1,0 +1,41 @@
+{
+  "candidate": {
+    "name": "GISS-E2-1-G",
+    "version": "CMIP6 (ModelE2.1 coupled model, NASA-GISS)"
+  },
+  "computed": {
+    "m": 5,
+    "n_observables": 7,
+    "radius": 0.6073614619083052,
+    "delta": 0.025
+  },
+  "checks": {
+    "deficit_consistent": {
+      "ok": true,
+      "detail": "recomputed m=5 (of 7 observables), claimed m=5"
+    },
+    "radius_reported": {
+      "ok": true,
+      "detail": "r(delta=0.025) = 0.6074 over m=5"
+    },
+    "gates_structural": {
+      "ok": true,
+      "detail": "5 gates; skipped/neutral=none; unnamed=none"
+    },
+    "mutation_proven": {
+      "ok": true,
+      "detail": "4 proven of 4; unproven-but-claimed=none"
+    },
+    "reviewer_independent": {
+      "ok": false,
+      "detail": "coder='pacland climate module (DSH agents)', reviewer='pacland climate module (DSH agents)'"
+    },
+    "evidence_complete": {
+      "ok": true,
+      "detail": "missing=none"
+    }
+  },
+  "verdict": "FAIL",
+  "report_hash": "sha256:96e0a880d3f61a5b58c6f28b80205986fa236d16bd523dbeec82a2f794f0d269",
+  "generated": "2026-10-26T04:17:55.058699+00:00"
+}

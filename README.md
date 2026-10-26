@@ -26,6 +26,8 @@ Read **[SPEC.md](SPEC.md)** for the normative clauses.
 - `SPEC.md` — the normative specification (RFC 2119 language; every MUST is testable).
 - `conformance/` — a runnable conformance suite + candidate manifests.
 - `conformance/report-pacland-climate.json` — a worked, hash-stamped conformance report.
+- `conformance/reports/` — published reports on real subjects, each with the manifest it ran
+  against and its mutation proofs. Evidence, not certification; the registry is the certification.
 - `registry.json` — the public registry: every certified version, with the hash of the report
   that backs it.
 

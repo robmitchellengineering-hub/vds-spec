@@ -1,0 +1,33 @@
+{
+  "name": "GISS-E2-1-G",
+  "version": "CMIP6 (ModelE2.1 coupled model, NASA-GISS)",
+  "observables": [
+    {"id": "energy conservation (piControl net TOA)", "measured": true, "computable": true, "validated": true},
+    {"id": "ocean mass / sea-level drift", "measured": true, "computable": true, "validated": true},
+    {"id": "ocean salt drift", "measured": true, "computable": true, "validated": true},
+    {"id": "equilibrium climate sensitivity (ECS)", "measured": true, "computable": true, "validated": true},
+    {"id": "effective radiative forcing (ERF2x)", "measured": true, "computable": true, "validated": true},
+    {"id": "regional projections", "measured": true, "computable": true, "validated": false},
+    {"id": "2100 warming", "measured": false, "computable": true, "validated": false}
+  ],
+  "claimed": {"m": 5, "delta": 0.025},
+  "gates": [
+    {"name": "climate-tests (112)", "result": "pass"},
+    {"name": "conservation-gate (three ledgers)", "result": "pass"},
+    {"name": "sensitivity-gate (ECS 2.5-4.0 K)", "result": "pass"},
+    {"name": "forcing-gate (ERF2x 3.3-4.1 W/m2)", "result": "pass"},
+    {"name": "mutation-proofs (4 of 4 red)", "result": "pass"}
+  ],
+  "guards": [
+    {"name": "conservation-tolerance", "proven": true, "mutation": "pass"},
+    {"name": "worst-energy-model-zeroed", "proven": true, "mutation": "pass"},
+    {"name": "giss-ecs-out-of-range", "proven": true, "mutation": "pass"},
+    {"name": "giss-erf2x-out-of-band", "proven": true, "mutation": "pass"}
+  ],
+  "reviewer": {"coder": "pacland climate module (DSH agents)", "reviewer": "pacland climate module (DSH agents)"},
+  "evidence": {
+    "producer": "pacland @ e7d5d6b, src/pacland/climate/{cmip6_drift,reference_model,ecs_model}.py",
+    "execution": "2026-10-26 re-run: 112 climate tests pass; reference_model -> GISS-E2-1-G 2.71 K; 4/4 mutations red",
+    "falsifier": "a model that closes all three ledgers and fails a sensitivity or forcing gate would replace GISS-E2-1-G as the reference"
+  }
+}
