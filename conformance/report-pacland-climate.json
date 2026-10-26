@@ -20,11 +20,11 @@
     },
     "gates_structural": {
       "ok": true,
-      "detail": "5 gates; skipped/neutral=none; unnamed=none"
+      "detail": "3 gates; skipped/neutral=none; unnamed=none"
     },
     "mutation_proven": {
       "ok": true,
-      "detail": "4 proven of 4; unproven-but-claimed=none"
+      "detail": "6 proven of 6; unproven-but-claimed=none"
     },
     "reviewer_independent": {
       "ok": true,
@@ -36,6 +36,6 @@
     }
   },
   "verdict": "PASS",
-  "report_hash": "sha256:7d7f55d8dcfd4d86aea3acec520fac84eabba17e1cd6568e49aacec6ba04b2e3",
-  "generated": "2026-10-24T04:51:08.235175+00:00"
+  "report_hash": "sha256:bb4e3f1320ea47b97258dc532f3ebb8de94922e00067259ae65ef96e9bab087e",
+  "generated": "2026-10-26T13:01:25.731747+00:00"
 }

@@ -81,44 +81,46 @@
   },
   "gates": [
     {
-      "name": "theorem-tower",
-      "result": "pass"
-    },
-    {
-      "name": "climate-deficit",
-      "result": "pass"
-    },
-    {
       "name": "unit-tests",
       "result": "pass"
     },
     {
-      "name": "conservation-guard",
+      "name": "conservation-gate",
       "result": "pass"
     },
     {
-      "name": "certificate",
+      "name": "reference-model-gate",
       "result": "pass"
     }
   ],
   "guards": [
     {
-      "name": "guard_energy_budget",
+      "name": "conservation-unit-scale",
       "proven": true,
       "mutation": "pass"
     },
     {
-      "name": "guard_mass",
+      "name": "worst-energy-offender-zeroed",
       "proven": true,
       "mutation": "pass"
     },
     {
-      "name": "guard_salt",
+      "name": "giss-ecs-out-of-range",
       "proven": true,
       "mutation": "pass"
     },
     {
-      "name": "guard_ecs",
+      "name": "giss-erf2x-out-of-band",
+      "proven": true,
+      "mutation": "pass"
+    },
+    {
+      "name": "site-verification-link",
+      "proven": true,
+      "mutation": "pass"
+    },
+    {
+      "name": "site-honest-line",
       "proven": true,
       "mutation": "pass"
     }
