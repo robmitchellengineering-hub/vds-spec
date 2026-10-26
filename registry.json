@@ -32,7 +32,13 @@
       "auditor": "VVS (self)",
       "status": "self-certified-reference",
       "reportFile": "conformance/reports/harness-mesh/REPORT.md",
-      "note": "First non-model entry: verified as gates + guards + ledger. The mutation proofs come from the rig's own runner, so the evidence is self-attested \u2014 sampled re-runs are the mitigation to build. No m and no radius: inventing observables to fit the schema would be the fault this project exists to catch."
+      "note": "First non-model entry: verified as gates + guards + ledger. The proofs come from the rig's own runner, so the evidence is SELF-ATTESTED \u2014 and now SAMPLED: a seeded random sample of 3 of its 12 guards was re-executed on 2026-10-26 (seed 20261026, 3/3 reproduced), by tools/sample-proofs.mjs in the SDK. The sample is published at harness-mesh/sampled-proofs.json. No m and no radius: inventing observables to fit the schema would be the fault this project exists to catch.",
+      "sampled": {
+        "seed": 20261026,
+        "k": 3,
+        "reproduced": "3/3",
+        "evidence": "harness-mesh/sampled-proofs.json"
+      }
     }
   ]
 }
