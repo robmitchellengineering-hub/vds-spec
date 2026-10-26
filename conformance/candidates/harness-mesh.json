@@ -1,0 +1,186 @@
+{
+  "name": "harness-mesh",
+  "version": "v0.1",
+  "observables": [
+    {
+      "id": "a gate that exits 0 must print evidence",
+      "measured": true,
+      "computable": true,
+      "validated": true
+    },
+    {
+      "id": "a guard must go red when the thing it protects is broken",
+      "measured": true,
+      "computable": true,
+      "validated": true
+    },
+    {
+      "id": "an incident must name its rule and its guard",
+      "measured": true,
+      "computable": true,
+      "validated": true
+    },
+    {
+      "id": "a job's result must be derivable from its own output",
+      "measured": true,
+      "computable": true,
+      "validated": true
+    },
+    {
+      "id": "the way in (tailscale/ssh/tunnel) must be reachable",
+      "measured": true,
+      "computable": true,
+      "validated": true
+    },
+    {
+      "id": "every node identifies as itself",
+      "measured": true,
+      "computable": true,
+      "validated": true
+    },
+    {
+      "id": "a node's capability list matches the machine",
+      "measured": true,
+      "computable": true,
+      "validated": true
+    },
+    {
+      "id": "the board's state matches the jobs",
+      "measured": true,
+      "computable": true,
+      "validated": false
+    },
+    {
+      "id": "a job completes within its timeout on a loaded node",
+      "measured": false,
+      "computable": true,
+      "validated": false
+    }
+  ],
+  "claimed": {
+    "deficit": "not applicable to a build system \u2014 see note"
+  },
+  "gates": [
+    {
+      "name": "sop-violations",
+      "result": "pass"
+    },
+    {
+      "name": "hooks-census",
+      "result": "pass"
+    },
+    {
+      "name": "hook-remediation",
+      "result": "pass"
+    },
+    {
+      "name": "injection-budget",
+      "result": "pass"
+    },
+    {
+      "name": "claim-vs-reality",
+      "result": "pass"
+    },
+    {
+      "name": "enforcement-truth",
+      "result": "pass"
+    },
+    {
+      "name": "ci-on-mesh",
+      "result": "pass"
+    },
+    {
+      "name": "verify-runners",
+      "result": "pass"
+    },
+    {
+      "name": "check-paths",
+      "result": "pass"
+    },
+    {
+      "name": "verify-gateway",
+      "result": "pass"
+    },
+    {
+      "name": "keepalive-web-restart",
+      "result": "pass"
+    },
+    {
+      "name": "model-default",
+      "result": "pass"
+    }
+  ],
+  "guards": [
+    {
+      "name": "board-liveness",
+      "proven": true,
+      "mutation": "pass"
+    },
+    {
+      "name": "check-paths-windows-illegal",
+      "proven": true,
+      "mutation": "pass"
+    },
+    {
+      "name": "dispatch-list-runners",
+      "proven": true,
+      "mutation": "pass"
+    },
+    {
+      "name": "drift-checks",
+      "proven": true,
+      "mutation": "pass"
+    },
+    {
+      "name": "gateway-a1",
+      "proven": true,
+      "mutation": "pass"
+    },
+    {
+      "name": "mesh-sync-exit-parity",
+      "proven": true,
+      "mutation": "pass"
+    },
+    {
+      "name": "node-loop-suspect",
+      "proven": true,
+      "mutation": "pass"
+    },
+    {
+      "name": "node.ps1-suspect-parity",
+      "proven": true,
+      "mutation": "pass"
+    },
+    {
+      "name": "probe-audio-parity",
+      "proven": true,
+      "mutation": "pass"
+    },
+    {
+      "name": "repair-node-verdict",
+      "proven": true,
+      "mutation": "pass"
+    },
+    {
+      "name": "repair-node.ps1-verdict-parity",
+      "proven": true,
+      "mutation": "pass"
+    },
+    {
+      "name": "runner-consistency",
+      "proven": true,
+      "mutation": "pass"
+    }
+  ],
+  "reviewer": {
+    "coder": "Rob Mesh sessions (multiple DSH models)",
+    "reviewer": "this session's re-run + the mutation proofs"
+  },
+  "evidence": {
+    "producer": "harness-mesh @ main: scripts/mutate-guards.mjs writes mutations.json (33 proofs, 12 guards)",
+    "execution": "2026-10-26: valiant verify 12/12 \u00b7 valiant ledger 13 hazards \u00b7 valiant mutate 33/33 caught \u00b7 badge certifies 12 guards",
+    "falsifier": "a gate whose output is empty cannot pass (suspect), and any guard whose mutation survives is reported SURVIVED, which fails the run"
+  },
+  "kind": "system",
+  "note": "A system entry: verified as gates + guards + ledger. The verification deficit m and the certificate radius are defined over measured observables of a model; a build rig has none, so they are absent here rather than fabricated."
+}

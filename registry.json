@@ -18,6 +18,21 @@
       "report": "sha256:bb4e3f1320ea47b97258dc532f3ebb8de94922e00067259ae65ef96e9bab087e",
       "reportFile": "conformance/report-pacland-climate.json",
       "note": "Reference implementation; self-run conformance, not an independent audit. Counts are the config pacland actually carries (3 gates, 6 guards), not a manifest claim: before 2026-10-26 this entry said 5/5 and 4 while the config had one working gate and an ineffective guard."
+    },
+    {
+      "id": "harness-mesh",
+      "kind": "system",
+      "product": "harness-mesh",
+      "version": "v0.1",
+      "level": "L3",
+      "deficit": "not applicable \u2014 a build system makes claims, not measurements (see report \u00a73)",
+      "guardsProven": 12,
+      "gatesStructural": "12/12",
+      "audited": "2026-10-26",
+      "auditor": "VVS (self)",
+      "status": "self-certified-reference",
+      "reportFile": "conformance/reports/harness-mesh/REPORT.md",
+      "note": "First non-model entry: verified as gates + guards + ledger. The mutation proofs come from the rig's own runner, so the evidence is self-attested \u2014 sampled re-runs are the mitigation to build. No m and no radius: inventing observables to fit the schema would be the fault this project exists to catch."
     }
   ]
 }

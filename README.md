@@ -35,6 +35,11 @@ Read **[SPEC.md](SPEC.md)** for the normative clauses.
 
 ## The public registry
 
+An entry is either a **model** (carries a verification deficit `m` and a certificate radius) or a
+**system** (carries gates, guards and a ledger — a build rig, a pipeline, a process). The `kind` field
+says which; a system has no `m`, and inventing one to fit the schema would be the failure the standard
+exists to prevent. The first system entry is `harness-mesh`.
+
 `registry.json` is the machine-readable record, and it is the only copy — a certification is
 published here, not copied here. Each entry names the product, the exact version, the level,
 the deficit `m`, the guards proven, the gates structural, the auditor, the status, and the
