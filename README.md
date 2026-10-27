@@ -39,7 +39,9 @@ An entry is either a **model** (carries a verification deficit `m` and a certifi
 **system** (carries gates, guards and a ledger — a build rig, a pipeline, a process). The `kind` field
 says which; a system has no `m`, and inventing one to fit the schema would be the failure the standard
 exists to prevent. The system entries are `harness-mesh` (the build rig), `pacland-climate` (a model, for contrast)
-and `valiant-verification-sdk` — the reference implementation, verified with the tool a customer receives.
+`valiant-verification-sdk` — the reference implementation, verified with the tool a customer receives — and
+`morpheus-self-hosted`, the largest by proof count: 507 published proofs across 128 guards, of which the SDK re-ran 505
+itself and each went red.
 
 `registry.json` is the machine-readable record, and it is the only copy — a certification is
 published here, not copied here. Each entry names the product, the exact version, the level,

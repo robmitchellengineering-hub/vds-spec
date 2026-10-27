@@ -55,6 +55,21 @@
       "status": "self-certified-reference",
       "reportFile": "conformance/reports/valiant-verification-sdk/REPORT.md",
       "note": "The reference implementation, verified with the tool a customer receives: 16/16 gates, 4/4 mutations caught, one hazard carrying RULE + GUARD + a REPLAY command and an intact hash chain. Its proofs are re-executed by the SDK itself (rows carry file/find/replace/check), and `valiant pack` bundles the evidence with a signed MANIFEST that verifies offline. Self-certified, not third-party audited \u2014 and its own report states the limit it cannot cross: a check that keeps state outside the throwaway copy can look like a catch."
+    },
+    {
+      "id": "morpheus-self-hosted",
+      "kind": "system",
+      "product": "morpheus-self-hosted",
+      "version": "main@3a19039",
+      "level": "L3",
+      "deficit": "not applicable \u2014 a build platform makes claims about code, not measurements (see report \u00a73)",
+      "guardsProven": 128,
+      "gatesStructural": "2/2",
+      "audited": "2026-10-27",
+      "auditor": "VVS (self)",
+      "status": "self-certified-reference",
+      "reportFile": "conformance/reports/morpheus-self-hosted/REPORT.md",
+      "note": "507 published proofs across 128 guards, every row carrying a re-execution recipe: the SDK re-ran 505 of them itself and each went red. Getting there fixed two guards rather than the proofs \u2014 one asked git for the file list, and the SDK's copy excludes .git on purpose (#716). The first attempt reported 503 unreplayable rows, and that measurement was against a stale mirror: the distinction between 'the proofs are broken' and 'the guards could not run in the copy' is recorded in the report."
     }
   ]
 }
