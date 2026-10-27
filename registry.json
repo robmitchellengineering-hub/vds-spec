@@ -18,7 +18,7 @@
       "status": "self-certified-reference",
       "report": "sha256:bb4e3f1320ea47b97258dc532f3ebb8de94922e00067259ae65ef96e9bab087e",
       "reportFile": "conformance/report-pacland-climate.json",
-      "note": "Reference implementation; self-run conformance, not an independent audit. Counts are the config pacland actually carries (3 gates, 6 guards), not a manifest claim: before 2026-10-26 this entry said 5/5 and 4 while the config had one working gate and an ineffective guard."
+      "note": "Reference implementation; self-run conformance, not an independent audit. Counts are the config pacland actually carries (3 gates, 6 guards), not a manifest claim: before 2026-10-26 this entry said 5/5 and 4 while the config had one working gate and an ineffective guard. Adoption is one valiant.json: the licensed SOP baseline ships inside the SDK and is verified there, and its six guards' proofs are produced by `valiant mutate`, not typed by hand."
     },
     {
       "id": "harness-mesh",
@@ -33,7 +33,7 @@
       "auditor": "VVS (self)",
       "status": "self-certified-reference",
       "reportFile": "conformance/reports/harness-mesh/REPORT.md",
-      "note": "First non-model entry: verified as gates + guards + ledger. The proofs come from the rig's own runner, so the evidence is SELF-ATTESTED \u2014 and now SAMPLED: a seeded random sample of 3 of its 12 guards was re-executed on 2026-10-26 (seed 20261026, 3/3 reproduced), by tools/sample-proofs.mjs in the SDK. The sample is published at harness-mesh/sampled-proofs.json. No m and no radius: inventing observables to fit the schema would be the fault this project exists to catch.",
+      "note": "First non-model entry: verified as gates + guards + ledger. Its proofs are produced by the rig's own runner and now CARRY a re-execution recipe (file, find, replace, check), so the SDK re-runs them rather than trusting the file: 33 proofs, 33 red, every one replayed. A seeded sample was also re-executed on 2026-10-26 (seed 20261026, 3/3). No m and no radius: inventing observables to fit the schema would be the fault this project exists to catch.",
       "sampled": {
         "seed": 20261026,
         "k": 3,

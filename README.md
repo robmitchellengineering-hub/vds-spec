@@ -100,8 +100,29 @@ SPEC.md §10.
 ## Comment / adopt
 
 The standard is open for comment. To propose a change, open an issue with the clause number.
+
 To adopt it, implement the six checks in `conformance/` and run the suite against your own
 model — the report is your evidence.
+
+### What adopting it looks like with the licensed SDK
+
+The SDK is the reference implementation, and adoption is deliberately small:
+
+1. **One file.** `valiant init` writes `valiant.json` into your repo and nothing else. It names the
+   checks you already run (`gates`), the mutations that prove they can fail (`guards`), and the
+   hazard ledger if you keep one. The licensed baseline of SOPs ships **inside the SDK**, signed,
+   and is verified there on every run — nothing about it is copied into your repository, so there
+   is no file in your tree to edit, delete or replay.
+2. **Your own SOPs** go in the same file under `sopRules`. A rule may add to the baseline; it may
+   not shadow, disable or weaken one (that is refused by name). A rule counts as *enforced* only
+   when it declares a sabotage and the SDK watches its check go from pass to red — and back to
+   pass once the sabotage is undone. A rule without that is printed as `accepted-unenforced` on
+   every run rather than being quietly counted.
+3. **One command.** `valiant gate` is the verdict: gates, ledger, guards proved, SOP baseline.
+   Exit 0 means every contract holds; 1 means one is broken; 2 means one could not be checked.
+
+Evidence stays in your repository (`mutations.json`), and the report is hash-stamped, so a reader
+can re-run what it claims instead of taking it on trust.
 
 ---
 
